@@ -1,16 +1,21 @@
 package ni.edu.uam.administracionfx.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "usuario")
+@NamedQueries({
+        @NamedQuery(
+              name="Usuario.findAll",
+              query="SELECT e FROM Usuario e"
+        )
+})
 public class Usuario {
     @Id
+    @UuidGenerator
     @Column(name = "id", nullable = false)
     private UUID id;
 
@@ -110,4 +115,19 @@ public class Usuario {
         this.rutaFoto = rutaFoto;
     }
 
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", primerNombre='" + primerNombre + '\'' +
+                ", segundoNombre='" + segundoNombre + '\'' +
+                ", primerApellido='" + primerApellido + '\'' +
+                ", segundoApellido='" + segundoApellido + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", password='" + password + '\'' +
+                ", correo='" + correo + '\'' +
+                ", rutaFoto='" + rutaFoto + '\'' +
+                '}';
+    }
 }

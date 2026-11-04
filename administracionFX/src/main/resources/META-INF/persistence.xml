@@ -13,7 +13,6 @@
                           value="jdbc:postgresql://localhost:5432/estudiante"/>
                 <property name="hibernate.show_sql" value="true"/>
                 <property name="hibernate.hbm2ddl.auto" value="update"/>
-                <property name="hibernate.archive.autodetection" value="class"/>
             </properties>
     </persistence-unit>
 </persistence>
