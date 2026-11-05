@@ -6,6 +6,7 @@ import jakarta.persistence.TypedQuery;
 import ni.edu.uam.administracionfx.model.Usuario;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UsuarioDao implements IUsuarioDao{
     @Override
@@ -44,8 +45,21 @@ public class UsuarioDao implements IUsuarioDao{
     }
 
     @Override
-    public Usuario findById(String id) {
-        return null;
+    public Optional<Usuario> findById(String id) {
+        EntityManager em = EntityManagerAdmin.getEntityManager();
+        try {
+            TypedQuery<Usuario> query = em.createNamedQuery("Usuario.findById", Usuario.class);
+            query.setParameter(1,id);
+            Usuario u = query.getSingleResultOrNull();
+            return Optional.of(u);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        finally {
+            em.close();
+        }
+        return Optional.empty();
     }
 
     @Override

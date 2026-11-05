@@ -11,6 +11,10 @@ import java.util.UUID;
         @NamedQuery(
               name="Usuario.findAll",
               query="SELECT e FROM Usuario e"
+        ),
+        @NamedQuery(
+              name="Usuario.findById",
+              query = "SELECT e FROM Usuario e WHERE e.id = ?1"
         )
 })
 public class Usuario {
