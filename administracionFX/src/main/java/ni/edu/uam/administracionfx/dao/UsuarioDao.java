@@ -7,6 +7,7 @@ import ni.edu.uam.administracionfx.model.Usuario;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class UsuarioDao implements IUsuarioDao{
     @Override
@@ -49,7 +50,7 @@ public class UsuarioDao implements IUsuarioDao{
         EntityManager em = EntityManagerAdmin.getEntityManager();
         try {
             TypedQuery<Usuario> query = em.createNamedQuery("Usuario.findById", Usuario.class);
-            query.setParameter(1,id);
+            query.setParameter(1, UUID.fromString(id));
             Usuario u = query.getSingleResultOrNull();
             return Optional.of(u);
         }

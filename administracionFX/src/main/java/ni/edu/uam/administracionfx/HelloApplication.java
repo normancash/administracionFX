@@ -24,7 +24,11 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         IUsuarioDao usuarioDao = new UsuarioDao();
         Usuario u = new Usuario();
-        u.setPrimerNombre("Jose");
+        u = usuarioDao.findById("39ea00ff-6759-4dde-a998-c7f38f43a9b9").orElse(null);
+        System.out.println(u);
+        usuarioDao.delete(u);
+        usuarioDao.listAll().forEach(System.out::println);
+        /*u.setPrimerNombre("Jose");
         u.setSegundoNombre("Carlos");
         u.setPrimerApellido("Lopez");
         u.setSegundoApellido("Lopez");
@@ -32,7 +36,7 @@ public class HelloApplication extends Application {
         u.setUsuario("jclopez");
         u.setPassword("1234");
         usuarioDao.save(u);
-        usuarioDao.listAll().forEach(System.out::println);
+        usuarioDao.listAll().forEach(System.out::println);*/
         //launch();
     }
 }
