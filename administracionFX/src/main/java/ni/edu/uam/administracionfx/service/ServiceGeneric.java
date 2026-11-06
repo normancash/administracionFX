@@ -6,7 +6,7 @@ import ni.edu.uam.administracionfx.dao.ImplDao;
 public class ServiceGeneric {
 
     protected IDao dao;
-    public ServiceGeneric(IDao dao) {
+    public ServiceGeneric() {
         this.dao = new ImplDao();
     }
 }

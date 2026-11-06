@@ -6,8 +6,8 @@ import ni.edu.uam.administracionfx.model.Usuario;
 import java.util.List;
 
 public class ServiceUsuario extends ServiceGeneric{
-    public ServiceUsuario(IDao dao) {
-        super(dao);
+    public ServiceUsuario() {
+        super();
     }
 
     public List<Usuario> getAll() {
