@@ -4,6 +4,7 @@ module ni.edu.uam.administracionfx {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
     requires java.sql;
+    requires net.sf.jasperreports.core;
 
     opens ni.edu.uam.administracionfx to javafx.fxml;
 

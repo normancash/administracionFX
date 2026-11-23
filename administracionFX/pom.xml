@@ -58,8 +58,29 @@
             <artifactId>hibernate-scan-jandex</artifactId>
             <version>7.0.4.Final</version>
         </dependency>
+        <!--JASPER REPORTS-->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>7.0.8</version>
+        </dependency>
+        <!--EXPORTACION A PDF-->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-pdf</artifactId>
+            <version>7.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-jdt</artifactId>
+            <version>7.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>7.0.8</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
