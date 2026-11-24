@@ -15,19 +15,12 @@ import java.util.Map;
 
 public class ReportService {
 
-    private final IExportar expo;
-
-    public ReportService(IExportar expo) {
-        this.expo = expo;
-    }
-
-
     public enum Formato {
         PDF,XLSX
     }
 
-    public void exportar(File destino
-            , Formato formato) throws SQLException
+    public void exportar(IExportar expo,File destino,String formato)
+             throws SQLException
             , JRException, IOException
     {
         String url = System.getenv().getOrDefault(
@@ -48,7 +41,7 @@ public class ReportService {
           JasperReport jasperReport =
                   JasperCompileManager.compileReport(plantilla);
           Map<String, Object> parameters = new HashMap<>();
-          if (formato == Formato.XLSX) {
+          if (formato.equalsIgnoreCase(Formato.XLSX.name())) {
               parameters.put(JRParameter.IS_IGNORE_PAGINATION,Boolean.TRUE);
           }
           JasperPrint jasperPrint = JasperFillManager.fillReport(
